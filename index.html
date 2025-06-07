@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Escritório de Advocacia</title>
+  <style>
+    :root {
+      --primary: #8B0000;
+      --secondary: #ffffff;
+      --dark: #111;
+      --light: #f5f5f5;
+      --transition: 0.3s ease-in-out;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      color: var(--dark);
+      background-color: var(--light);
+      overflow-x: hidden;
+    }
+
+    header {
+      background-color: var(--primary);
+      color: var(--secondary);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+    }
+
+    nav a {
+      color: var(--secondary);
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    nav a:hover {
+      color: #ffe5e5;
+    }
+
+    main {
+      padding: 2rem;
+      min-height: calc(100vh - 64px);
+    }
+
+    section {
+      display: none;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    footer {
+      background-color: var(--primary);
+      color: var(--secondary);
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: block;
+        cursor: pointer;
+        font-size: 1.5rem;
+      }
+
+      nav.open {
+        display: block;
+        background-color: var(--primary);
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+      }
+
+      nav.open a {
+        display: block;
+        padding: 0.75rem;
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+      }
+    }
+
+    .container {
+      max-width: 960px;
+      margin: auto;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+
+    p {
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .card {
+      background: #fff;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .advogado-card {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .advogado-card img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .law-item {
+      margin-bottom: 1rem;
+    }
+
+    .law-item strong {
+      color: var(--primary);
+    }
+  </style>
+</head>
+<body>
+
+  <header style="background: linear-gradient(90deg, rgba(139,0,0,0.95) 0%, rgba(0,0,0,0.85) 100%); color: var(--secondary); padding: 1rem 2rem; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 5px rgba(0,0,0,0.6);">    
+    <div style="display: flex; align-items: center; gap: 1rem;">
+        <!-- Logotipo -->
+        <img src="logo.png" alt="Logotipo do Escritório Jurídico Barbosa" style="height: 80px; width: auto; border-radius: 4px;" />
+        <!-- Nome do Escritório -->
+        <h1 style="font-size: 1.5rem; margin: 0;">Escritório Barbosa Advogados</h1>
+    </div>
+    
+    <!-- Menu Desktop -->
+    <nav id="mainNav" style="display: flex; gap: 1.5rem; align-items: center;">
+        <a href="#home" style="color: var(--secondary); text-decoration: none; font-weight: 500; transition: color 0.3s;">Home</a> 
+        <a href="#correspondente" style="color: var(--secondary); text-decoration: none; font-weight: 500; transition: color 0.3s;">Advocacia Correspondente</a>
+        <a href="#atuacao" style="color: var(--secondary); text-decoration: none; font-weight: 500; transition: color 0.3s;">Áreas de Atuação</a>
+        <a href="#advogados" style="color: var(--secondary); text-decoration: none; font-weight: 500; transition: color 0.3s;">Advogados</a>
+        <a href="#leis" style="color: var(--secondary); text-decoration: none; font-weight: 500; transition: color 0.3s;">Leis</a>
+    </nav>
+    
+    <!-- Botão do Menu Mobile -->
+    <div class="menu-toggle" id="menuToggle" style="display: none; font-size: 1.5rem; cursor: pointer;">&#9776;</div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section id="home" class="active">
+        <!-- Hero Section -->
+        <div style="background: url('office.png')  center center / cover no-repeat; padding: 6rem 2rem; text-align: center; color: white; border-radius: 8px; margin-bottom: 2rem;">
+            <h2 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 1rem; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);">Compromisso com a Justiça, Excelência na Solução.</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem; text-shadow: 0 2px 4px rgba(0, 0, 0, 3);">
+                Atuamos com ética, estratégia e resultado nas principais áreas do Direito.
+            </p>
+            <a href="#contato" style="background: var(--primary); color: white; padding: 0.75rem 1.5rem; border-radius: 4px; margin-right: 1rem; text-decoration: none; font-weight: bold;">Entre em contato</a>
+            <a href="#atuacao" style="background: #b22222; color: white; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: bold;">Saiba mais</a>
+        </div>
+        
+        <!-- Sobre o Escritório -->
+        <div style="text-align: center; margin-top: 5rem; margin-bottom: 5rem;">
+            <h2 style="color: var(--primary); margin-bottom: 1.5rem;">Sobre o Escritório</h2>
+            <div style="background: #fff0f0; border: 1px solid #e6cccc; border-radius: 8px; padding: 1.5rem; max-width: 800px; margin: 0 auto; font-size: 1rem; line-height: 1.6;">
+            <p style="text-align: justify; margin: 0 auto;">
+                Somos um escritório multidisciplinar, com atuação estratégica e personalizada em diversas áreas do Direito.
+                Buscamos soluções eficientes para nossos clientes, tanto na esfera judicial quanto administrativa,
+                com base na ética, no comprometimento e na excelência técnica.
+            </p>
+            </div>
+        </div>
+        
+        <!-- Áreas de Atuação -->
+        <div style="margin-bottom: 2rem;">
+            <h2 style="color: var(--primary); margin-bottom: 1rem; text-align: center;">Áreas de Atuação</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+            <div class="card" style="text-align: center;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="var(--primary)" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                <h3>Direito Civil</h3>
+                <p>Contratos, obrigações, família e sucessões.</p>
+                <a href="#atuacao" style="color: var(--primary); text-decoration: underline; font-size: 0.9rem;">Ver detalhes</a>
+            </div>
+            <div class="card" style="text-align: center;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="var(--primary)" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.4-1.9-1.4H8v-2h2a1 1 0 0 1 1 1v1h1.43L14 13h1v3.39z"/></svg>
+                <h3>Direito Trabalhista</h3>
+                <p>Ações trabalhistas, consultoria e acordos coletivos.</p>
+                <a href="#atuacao" style="color: var(--primary); text-decoration: underline; font-size: 0.9rem;">Ver detalhes</a>
+            </div>
+            <div class="card" style="text-align: center;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="var(--primary)" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+                <h3>Direito Tributário</h3>
+                <p>Orientação fiscal e defesa em disputas tributárias.</p>
+                <a href="#atuacao" style="color: var(--primary); text-decoration: underline; font-size: 0.9rem;">Ver detalhes</a>
+            </div>
+            <div class="card" style="text-align: center;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="var(--primary)" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-4 11h-4v-2h4v2zm0-4h-4V6h4v4z"/></svg>
+                <h3>Direito Empresarial</h3>
+                <p>Direito societário, compliance e recuperação judicial.</p>
+                <a href="#atuacao" style="color: var(--primary); text-decoration: underline; font-size: 0.9rem;">Ver detalhes</a>
+            </div>
+            <div class="card" style="text-align: center;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="var(--primary)" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.5 4.5 10 10 10s10-4.5 10-10V5l-9-4zm0 2.1L20.9 7c0 4.9-4 8.9-9 8.9s-9-4-9-8.9L12 3.1zM7 12c-2.8 0-5-2.2-5-5s2.2-5 5-5 5 2.2 5 5-2.2 5-5 5zm12 0c-2.8 0-5-2.2-5-5s2.2-5 5-5 5 2.2 5 5-2.2 5-5 5z"/></svg>
+                <h3>Direito de Família</h3>
+                <p>Divórcios, inventários, guarda e pensão alimentícia.</p>
+                <a href="#atuacao" style="color: var(--primary); text-decoration: underline; font-size: 0.9rem;">Ver detalhes</a>
+            </div>
+            <div class="card" style="text-align: center;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="var(--primary)" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.5 4.5 10 10 10s10-4.5 10-10V5l-9-4zm0 2.1L20.9 7c0 4.9-4 8.9-9 8.9s-9-4-9-8.9L12 3.1zM7 12c-2.8 0-5-2.2-5-5s2.2-5 5-5 5 2.2 5 5-2.2 5-5 5zm12 0c-2.8 0-5-2.2-5-5s2.2-5 5-5 5 2.2 5 5-2.2 5-5 5z"/></svg>
+                <h3>Advocacia de Apoio</h3>
+                <p>Assessoria jurídica localizada em todo o Brasil.</p>
+                <a href="#correspondente" style="color: var(--primary); text-decoration: underline; font-size: 0.9rem;">Ver detalhes</a>
+            </div>
+            </div>
+        </div>
+        
+        <!-- Diferenciais -->
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <h2 style="color: var(--primary); margin-bottom: 1.5rem;">Diferenciais</h2>
+            <div style="background: #fff0f0; border: 1px solid #e6cccc; border-radius: 8px; padding: 1.5rem; display: inline-block; max-width: 900px;">
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; font-size: 1rem;">
+                <li style="display: flex; align-items: center;">
+                <span style="color: var(--primary); font-weight: bold; margin-right: 0.5rem;">✓</span> Atendimento personalizado
+                </li>
+                <li style="display: flex; align-items: center;">
+                <span style="color: var(--primary); font-weight: bold; margin-right: 0.5rem;">✓</span> Experiência em processos complexos
+                </li>
+                <li style="display: flex; align-items: center;">
+                <span style="color: var(--primary); font-weight: bold; margin-right: 0.5rem;">✓</span> Atuação em todo o território nacional
+                </li>
+                <li style="display: flex; align-items: center;">
+                <span style="color: var(--primary); font-weight: bold; margin-right: 0.5rem;">✓</span> Parceria com empresas e outros escritórios
+                </li>
+                <li style="display: flex; align-items: center;">
+                <span style="color: var(--primary); font-weight: bold; margin-right: 0.5rem;">✓</span> Agilidade e transparência
+                </li>
+            </ul>
+            </div>
+        </div>
+
+        <!-- Contato -->
+        <div id="contato" style="margin-top: 3rem; text-align: center;">
+          <h2 style="color: var(--primary); margin-bottom: 1.5rem;">Entre em Contato</h2>
+          <div style="background: white; border: 1px solid #ddd; border-radius: 12px; padding: 2rem; max-width: 700px; margin: 0 auto; box-shadow: 0 4px 16px rgba(0,0,0,0.05);">
+            <p style="color: #666; font-size: 1rem; margin-bottom: 1rem;">
+              <strong>Endereço:</strong><br/>
+              Rua Endereço Aqui, 123 - Centro<br/>
+              Sobradinho, DF - CEP 01000-000
+            </p>
+            <p style="color: #666; font-size: 1rem; margin-bottom: 1rem;">
+              <strong>Telefone:</strong><br/>
+              (61) 99999-9999
+            </p>
+            <p style="color: #666; font-size: 1rem; margin-bottom: 1rem;">
+              <strong>E-mail:</strong><br/>
+              contato@advbarbosa.com.br
+            </p>
+
+            <!-- Redes Sociais -->
+            <div style="margin-top: 1.5rem;">
+              <p style="color: #666; font-size: 1rem; margin-bottom: 0.75rem;"><strong>Nos siga:</strong></p>
+              <div style="display: flex; justify-content: center; gap: 1.2rem; font-size: 1.5rem;">
+                <a href="#" style="color: #666; transition: color 0.3s;" title="Facebook">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                  </svg>
+                </a>
+                <a href="#" style="color: #666; transition: color 0.3s;" title="Instagram">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                  </svg>
+                </a>
+                <a href="#" style="color: #666; transition: color 0.3s;" title="LinkedIn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                    <rect x="2" y="9" width="4" height="12" />
+                    <circle cx="4" cy="4" r="2" />
+                  </svg>
+                </a>
+                <a href="#" style="color: #666; transition: color 0.3s;" title="Whatsapp">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="correspondente">
+        <h2>Advocacia Correspondente</h2>
+        <p>Nossa equipe oferece suporte jurídico localizado em diversos estados brasileiros, garantindo agilidade e precisão nos processos judiciais e extrajudiciais.</p>
+        <p>Com anos de experiência, somos parceiros confiáveis na execução de mandados, audiências, protocolos e outros serviços legais.</p>
+      </section>
+
+      <section id="atuacao">
+        <div style="text-align: center; margin-bottom: 3rem;">
+          <h2 style="color: var(--primary); font-size: 2.5rem; margin-bottom: 1rem;">Nossas Áreas de Atuação</h2>
+          <p style="font-size: 1.1rem; color: #444; max-width: 800px; margin: 0 auto;">
+            Oferecemos soluções jurídicas especializadas em diversas áreas do Direito, com ética, comprometimento e excelência técnica.
+          </p>
+        </div>
+      
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; padding: 0 1rem;">
+          
+          <!-- Card Individual -->
+          <div style="background: white; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); transition: transform 0.3s ease; padding: 1.5rem; text-align: center;">
+            <div style="margin-bottom: 1rem;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="var(--primary)" viewBox="0 0 24 24" stroke="var(--primary)" stroke-width="1.5">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+              </svg>
+            </div>
+            <h3 style="color: var(--primary); font-size: 1.5rem; margin-bottom: 0.5rem;">Direito Civil</h3>
+            <p style="color: #555; font-size: 0.95rem; line-height: 1.5;">
+              Contratos, obrigações, família e sucessões.
+            </p>
+            <a href="#atuacao" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: bold; text-decoration: none; border-bottom: 1px solid var(--primary);">Ver detalhes</a>
+          </div>
+      
+          <div style="background: white; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); transition: transform 0.3s ease; padding: 1.5rem; text-align: center;">
+            <div style="margin-bottom: 1rem;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="var(--primary)" viewBox="0 0 24 24" stroke="var(--primary)" stroke-width="1.5">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.4-1.9-1.4H8v-2h2a1 1 0 0 1 1 1v1h1.43L14 13h1v3.39z"/>
+              </svg>
+            </div>
+            <h3 style="color: var(--primary); font-size: 1.5rem; margin-bottom: 0.5rem;">Direito Trabalhista</h3>
+            <p style="color: #555; font-size: 0.95rem; line-height: 1.5;">
+              Ações trabalhistas, consultoria e acordos coletivos.
+            </p>
+            <a href="#atuacao" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: bold; text-decoration: none; border-bottom: 1px solid var(--primary);">Ver detalhes</a>
+          </div>
+      
+          <div style="background: white; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); transition: transform 0.3s ease; padding: 1.5rem; text-align: center;">
+            <div style="margin-bottom: 1rem;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="var(--primary)" viewBox="0 0 24 24" stroke="var(--primary)" stroke-width="1.5">
+                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/>
+              </svg>
+            </div>
+            <h3 style="color: var(--primary); font-size: 1.5rem; margin-bottom: 0.5rem;">Direito Tributário</h3>
+            <p style="color: #555; font-size: 0.95rem; line-height: 1.5;">
+              Orientação fiscal e defesa em disputas tributárias.
+            </p>
+            <a href="#atuacao" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: bold; text-decoration: none; border-bottom: 1px solid var(--primary);">Ver detalhes</a>
+          </div>
+      
+          <div style="background: white; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); transition: transform 0.3s ease; padding: 1.5rem; text-align: center;">
+            <div style="margin-bottom: 1rem;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="var(--primary)" viewBox="0 0 24 24" stroke="var(--primary)" stroke-width="1.5">
+                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-4 11h-4v-2h4v2zm0-4h-4V6h4v4z"/>
+              </svg>
+            </div>
+            <h3 style="color: var(--primary); font-size: 1.5rem; margin-bottom: 0.5rem;">Direito Empresarial</h3>
+            <p style="color: #555; font-size: 0.95rem; line-height: 1.5;">
+              Direito societário, compliance e recuperação judicial.
+            </p>
+            <a href="#atuacao" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: bold; text-decoration: none; border-bottom: 1px solid var(--primary);">Ver detalhes</a>
+          </div>
+      
+          <div style="background: white; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); transition: transform 0.3s ease; padding: 1.5rem; text-align: center;">
+            <div style="margin-bottom: 1rem;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="var(--primary)" viewBox="0 0 24 24" stroke="var(--primary)" stroke-width="1.5">
+                <path d="M12 1L3 5v6c0 5.5 4.5 10 10 10s10-4.5 10-10V5l-9-4zm0 2.1L20.9 7c0 4.9-4 8.9-9 8.9s-9-4-9-8.9L12 3.1zM7 12c-2.8 0-5-2.2-5-5s2.2-5 5-5 5 2.2 5 5-2.2 5-5 5zm12 0c-2.8 0-5-2.2-5-5s2.2-5 5-5 5 2.2 5 5-2.2 5-5 5z"/>
+              </svg>
+            </div>
+            <h3 style="color: var(--primary); font-size: 1.5rem; margin-bottom: 0.5rem;">Direito de Família</h3>
+            <p style="color: #555; font-size: 0.95rem; line-height: 1.5;">
+              Divórcios, inventários, guarda e pensão alimentícia.
+            </p>
+            <a href="#atuacao" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: bold; text-decoration: none; border-bottom: 1px solid var(--primary);">Ver detalhes</a>
+          </div>
+      
+          <div style="background: white; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); transition: transform 0.3s ease; padding: 1.5rem; text-align: center;">
+            <div style="margin-bottom: 1rem;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="var(--primary)" viewBox="0 0 24 24" stroke="var(--primary)" stroke-width="1.5">
+                <path d="M12 1L3 5v6c0 5.5 4.5 10 10 10s10-4.5 10-10V5l-9-4zm0 2.1L20.9 7c0 4.9-4 8.9-9 8.9s-9-4-9-8.9L12 3.1zM7 12c-2.8 0-5-2.2-5-5s2.2-5 5-5 5 2.2 5 5-2.2 5-5 5zm12 0c-2.8 0-5-2.2-5-5s2.2-5 5-5 5 2.2 5 5-2.2 5-5 5z"/>
+              </svg>
+            </div>
+            <h3 style="color: var(--primary); font-size: 1.5rem; margin-bottom: 0.5rem;">Advocacia de Apoio</h3>
+            <p style="color: #555; font-size: 0.95rem; line-height: 1.5;">
+              Assessoria jurídica localizada em todo o Brasil.
+            </p>
+            <a href="#correspondente" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: bold; text-decoration: none; border-bottom: 1px solid var(--primary);">Ver detalhes</a>
+          </div>
+      
+        </div>
+      </section>
+
+      <section id="advogados">
+        <div style="text-align: center; margin-bottom: 3rem;">
+          <h2 style="color: var(--primary); font-size: 2.5rem; margin-bottom: 1rem;">Nossos Advogados</h2>
+          <p style="font-size: 1.1rem; color: #444; max-width: 800px; margin: 0 auto;">
+            Conheça nossa equipe de advogados especializados, prontos para oferecer soluções jurídicas eficazes e personalizadas.
+          </p>
+        </div>
+      
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; padding: 0 1rem;">
+      
+          <!-- Card Advogado -->
+          <div style="background: white; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); transition: transform 0.3s ease; text-align: center; padding: 1.5rem;">
+            <img src="adv-homem.png" alt="Dr. João Sampaio" style="border-radius: 50%; width: 120px; height: 120px; object-fit: cover; margin: 0 auto 1rem; border: 3px solid var(--primary);" />
+            <h3 style="margin-bottom: 0.5rem; font-size: 1.3rem; color: var(--primary);">Dr. João Sampaio</h3>
+            <p style="color: #666; font-size: 0.95rem; margin-bottom: 1rem;">Direito Penal e Constitucional</p>
+            <p style="font-size: 0.9rem; color: #777; line-height: 1.5;">
+              Com vasta experiência em Direito Penal e Constitucional, Dr. João defende causas complexas com ética e estratégia.
+            </p>
+            <a href="mailto:joaosampaio@escritorio.com" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: bold; text-decoration: none; border-bottom: 1px solid var(--primary);">Contato</a>
+          </div>
+      
+          <div style="background: white; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); transition: transform 0.3s ease; text-align: center; padding: 1.5rem;">
+            <img src="adv-mulher.png"  alt="Dra. Ana Clara" style="border-radius: 50%; width: 120px; height: 120px; object-fit: cover; margin: 0 auto 1rem; border: 3px solid var(--primary);" />
+            <h3 style="margin-bottom: 0.5rem; font-size: 1.3rem; color: var(--primary);">Dra. Ana Clara</h3>
+            <p style="color: #666; font-size: 0.95rem; margin-bottom: 1rem;">Direito Civil e Família</p>
+            <p style="font-size: 0.9rem; color: #777; line-height: 1.5;">
+              Dra. Ana Clara atua com respeito e compromisso nas áreas de Direito Civil e Família, buscando sempre a melhor solução para seus clientes.
+            </p>
+            <a href="mailto:anaclara@escritorio.com" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: bold; text-decoration: none; border-bottom: 1px solid var(--primary);">Contato</a>
+          </div>
+      
+          <div style="background: white; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); transition: transform 0.3s ease; text-align: center; padding: 1.5rem;">
+            <img src="adv-homem-1.png"  alt="Dr. Pedro Lima" style="border-radius: 50%; width: 120px; height: 120px; object-fit: cover; margin: 0 auto 1rem; border: 3px solid var(--primary);" />
+            <h3 style="margin-bottom: 0.5rem; font-size: 1.3rem; color: var(--primary);">Dr. Pedro Lima</h3>
+            <p style="color: #666; font-size: 0.95rem; margin-bottom: 1rem;">Direito Empresarial e Trabalhista</p>
+            <p style="font-size: 0.9rem; color: #777; line-height: 1.5;">
+              Especializado em Direito Empresarial e Trabalhista, Dr. Pedro traz expertise e agilidade aos processos consultivos e contenciosos.
+            </p>
+            <a href="mailto:pedrolima@escritorio.com" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: bold; text-decoration: none; border-bottom: 1px solid var(--primary);">Contato</a>
+          </div>
+      
+        </div>
+      </section>
+
+      <section id="leis">
+        <h2>Principais Leis Aplicadas</h2>
+        <div class="law-item">
+          <strong>Código Civil:</strong> Lei 10.406/2002 – Regulamenta direitos patrimoniais e pessoais.
+        </div>
+        <div class="law-item">
+          <strong>Código Penal:</strong> Decreto-Lei 2.848/40 – Normatiza crimes e penas.
+        </div>
+        <div class="law-item">
+          <strong>CLT:</strong> Consolidação das Leis do Trabalho – Regras trabalhistas.
+        </div>
+        <div class="law-item">
+          <strong>Estatuto da Criança e do Adolescente:</strong> Lei 8.069/90 – Proteção infantil.
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Escritório Jurídico Barbosa Advogados. Todos os direitos reservados.
+  </footer>
+
+  <script>
+    const sections = document.querySelectorAll('section');
+    const links = document.querySelectorAll('nav a');
+    const menuToggle = document.getElementById('menuToggle');
+    const nav = document.getElementById('mainNav');
+
+    function showSection(id) {
+      sections.forEach(section => {
+        section.classList.remove('active');
+      });
+      document.querySelector(id).classList.add('active');
+    }
+
+    links.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href');
+        showSection(targetId);
+
+        // Fechar menu mobile
+        if (window.innerWidth <= 768) {
+          nav.classList.remove('open');
+        }
+      });
+    });
+
+    // Toggle menu mobile
+    menuToggle.addEventListener('click', () => {
+      nav.classList.toggle('open');
+    });
+
+    // Load default section
+    window.addEventListener('load', () => {
+      const hash = window.location.hash || '#home';
+      showSection(hash);
+    });
+
+    window.addEventListener('hashchange', () => {
+      const hash = window.location.hash || '#home';
+      showSection(hash);
+    });
+  </script>
+
+</body>
+</html>
+
+<script>
+  // Rolagem suave para links internos
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.getBoundingClientRect().top + window.scrollY - 80, // ajuste fino
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+</script>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const links = document.querySelectorAll('nav a');
+
+  function showSection(id) {
+    sections.forEach(section => {
+      section.classList.remove('active');
+    });
+    const targetSection = document.querySelector(id);
+    if (targetSection) {
+      targetSection.classList.add('active');
+
+      // Rolagem suave com ajuste refinado (-120 ou -140)
+      window.scrollTo({
+        top: targetSection.getBoundingClientRect().top + window.scrollY - 120,
+        behavior: 'smooth'
+      });
+    }
+  }
+
+  links.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = link.getAttribute('href');
+      showSection(targetId);
+
+      // Fechar menu mobile
+      if (window.innerWidth <= 768) {
+        document.getElementById('mainNav').classList.remove('open');
+      }
+    });
+  });
+
+  // Garantir início no topo ao carregar
+  window.addEventListener('load', () => {
+    const hash = window.location.hash || '#home';
+    showSection(hash);
+    window.scrollTo(0, 0);
+  });
+
+  window.addEventListener('hashchange', () => {
+    const hash = window.location.hash || '#home';
+    showSection(hash);
+  });
+</script>
