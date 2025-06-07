@@ -81,10 +81,10 @@
       font-size: 0.9rem;
     }
 
-    /* Responsive */
+    /* No mobile, oculta o menu por padrão */
     @media (max-width: 768px) {
       nav#mainNav {
-        display: none; /* Ocultar por padrão */
+        display: none !important;
         flex-direction: column;
         background-color: var(--primary);
         position: absolute;
@@ -97,7 +97,7 @@
       }
 
       nav#mainNav.open {
-        display: flex; /* Mostrar apenas quando a classe .open for adicionada */
+        display: flex !important;
       }
 
       nav#mainNav a {
@@ -112,7 +112,7 @@
         display: block !important;
       }
     }
-
+    
     .container {
       max-width: 960px;
       margin: auto;
@@ -165,9 +165,9 @@
   <header style="background: linear-gradient(90deg, rgba(139,0,0,0.95) 0%, rgba(0,0,0,0.85) 100%); color: var(--secondary); padding: 1rem 2rem; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
     <div style="display: flex; align-items: center; gap: 1rem;">
       <!-- Logotipo -->
-      <img src="https://placehold.co/40x40.png?text=Logo" alt="Logotipo" style="height: 40px; width: auto; border-radius: 4px;" />
+      <img src="logo.png" alt="Logotipo" style="height: 80px; width: auto; border-radius: 4px;" />
       <!-- Nome do Escritório -->
-      <h1 style="font-size: 1.5rem; margin: 0;">Escritório Jurídico Sampaio1</h1>
+      <h1 style="font-size: 1.5rem; margin: 0;">Escritório Barbosa Advogados</h1>
     </div>
 
     <!-- Menu Desktop -->
@@ -180,7 +180,7 @@
     </nav>
 
     <!-- Botão do Menu Mobile -->
-    <div class="menu-toggle" id="menuToggle" style="display: none; font-size: 1.5rem; cursor: pointer; color: white; user-select: none;">☰</div>
+    <div class="menu-toggle" id="menuToggle" style="display: none; font-size: 1.5rem; cursor: pointer; color: white;">☰</div>
   </header>
 
   <main>
@@ -491,49 +491,6 @@
     &copy; 2025 Escritório Jurídico Barbosa Advogados. Todos os direitos reservados.
   </footer>
 
-  <script>
-    const sections = document.querySelectorAll('section');
-    const links = document.querySelectorAll('nav a');
-    const menuToggle = document.getElementById('menuToggle');
-    const nav = document.getElementById('mainNav');
-
-    function showSection(id) {
-      sections.forEach(section => {
-        section.classList.remove('active');
-      });
-      document.querySelector(id).classList.add('active');
-    }
-
-    links.forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const targetId = link.getAttribute('href');
-        showSection(targetId);
-
-        // Fechar menu mobile
-        if (window.innerWidth <= 768) {
-          nav.classList.remove('open');
-        }
-      });
-    });
-
-    // Toggle menu mobile
-    menuToggle.addEventListener('click', () => {
-      nav.classList.toggle('open');
-    });
-
-    // Load default section
-    window.addEventListener('load', () => {
-      const hash = window.location.hash || '#home';
-      showSection(hash);
-    });
-
-    window.addEventListener('hashchange', () => {
-      const hash = window.location.hash || '#home';
-      showSection(hash);
-    });
-  </script>
-
 </body>
 </html>
 
@@ -574,35 +531,35 @@
     }
   }
 
-  // Navegação entre seções e fechar menu mobile
+  // Fechar menu ao clicar em link
   links.forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
       const targetId = link.getAttribute('href');
       showSection(targetId);
 
-      // Fechar menu mobile após selecionar uma opção
       if (window.innerWidth <= 768) {
         nav.classList.remove('open');
       }
     });
   });
 
-  // Toggle menu mobile (abrir/fechar)
+  // Abrir/fechar menu hamburguer
   if (menuToggle) {
     menuToggle.addEventListener('click', () => {
       nav.classList.toggle('open');
+      console.log('Botão hamburguer clicado! Menu aberto?', nav.classList.contains('open'));
     });
   }
 
-  // Fechar menu ao redimensionar para desktop
+  // Fechar menu ao redimensionar
   window.addEventListener('resize', () => {
     if (window.innerWidth > 768) {
       nav.classList.remove('open');
     }
   });
 
-  // Carregar página
+  // Inicialização da página
   window.addEventListener('load', () => {
     const hash = window.location.hash || '#home';
     showSection(hash);
