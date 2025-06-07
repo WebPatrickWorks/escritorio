@@ -81,6 +81,13 @@
       font-size: 0.9rem;
     }
 
+    .hero-desktop {
+      display: block;
+    }
+    .hero-mobile {
+      display: none;
+    }
+
     /* No mobile, oculta o menu por padrão */
     @media (max-width: 768px) {
       nav#mainNav {
@@ -110,6 +117,13 @@
 
       .menu-toggle {
         display: block !important;
+      }
+
+      .hero-desktop {
+        display: none;
+      }
+      .hero-mobile {
+        display: block;
       }
     }
     
@@ -186,14 +200,44 @@
   <main>
     <div class="container">
       <section id="home" class="active">
-        <!-- Hero Section -->
-        <div style="background: url('office.png')  center center / cover no-repeat; padding: 6rem 2rem; text-align: center; color: white; border-radius: 8px; margin-bottom: 2rem;">
-            <h2 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 1rem; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);">Compromisso com a Justiça, Excelência na Solução.</h2>
-            <p style="font-size: 1.2rem; margin-bottom: 2rem; text-shadow: 0 2px 4px rgba(0, 0, 0, 3);">
-                Atuamos com ética, estratégia e resultado nas principais áreas do Direito.
-            </p>
-            <a href="#contato" style="background: var(--primary); color: white; padding: 0.75rem 1.5rem; border-radius: 4px; margin-right: 1rem; text-decoration: none; font-weight: bold;">Entre em contato</a>
-            <a href="#atuacao" style="background: #b22222; color: white; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: bold;">Saiba mais</a>
+        <!-- Hero Desktop -->
+        <div class="hero-desktop" style="
+          background: url('office.png')  center center / cover no-repeat;
+          padding: 6rem 2rem;
+          text-align: center;
+          color: white;
+          border-radius: 8px;
+          margin-bottom: 2rem;
+          min-height: 400px;
+          position: relative;">
+          <h2 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 1rem;">Compromisso com a Justiça, Excelência na Solução.</h2>
+          <p style="font-size: 1.2rem; margin-bottom: 2rem; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);">
+            Atuamos com ética, estratégia e resultado nas principais áreas do Direito.
+          </p>
+          <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="#contato" style="background: var(--primary); color: white; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: bold; min-width: 140px; text-align: center;">Entre em contato</a>
+            <a href="#atuacao" style="background: #b22222; color: white; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: bold; min-width: 140px; text-align: center;">Saiba mais</a>
+          </div>
+        </div>
+
+        <!-- Hero Mobile -->
+        <div class="hero-mobile" style="
+          background: url('logo.png')  center center / cover no-repeat;
+          padding: 4rem 2rem;
+          text-align: center;
+          color: white;
+          border-radius: 8px;
+          margin-bottom: 2rem;
+          min-height: 300px;
+          position: relative;">
+          <h2 style="font-size: 2rem; font-weight: bold; margin-bottom: 1rem;">Compromisso com a Justiça, Excelência na Solução.</h2>
+          <p style="font-size: 1rem; margin-bottom: 1.5rem; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);">
+            Atuamos com ética, estratégia e resultado nas principais áreas do Direito.
+          </p>
+          <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="#contato" style="background: var(--primary); color: white; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: bold; min-width: 140px; text-align: center;">Entre em contato</a>
+            <a href="#atuacao" style="background: #b22222; color: white; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: bold; min-width: 140px; text-align: center;">Saiba mais</a>
+          </div>
         </div>
         
         <!-- Sobre o Escritório -->
