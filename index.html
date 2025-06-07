@@ -83,18 +83,9 @@
 
     /* Responsive */
     @media (max-width: 768px) {
-      nav {
+      nav#mainNav {
         display: none;
-      }
-
-      .menu-toggle {
-        display: block;
-        cursor: pointer;
-        font-size: 1.5rem;
-      }
-
-      nav.open {
-        display: block;
+        flex-direction: column;
         background-color: var(--primary);
         position: absolute;
         top: 60px;
@@ -104,12 +95,21 @@
         z-index: 999;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
       }
-      nav.open a {
+
+      nav#mainNav.open {
+        display: flex;
+      }
+
+      nav#mainNav a {
         display: block;
         padding: 1rem;
         border-bottom: 1px solid rgba(255,255,255,0.15);
-        font-size: 1.1rem;
         color: white !important;
+        font-size: 1.1rem;
+      }
+
+      .menu-toggle {
+        display: block !important;
       }
     }
 
@@ -167,7 +167,7 @@
       <!-- Logotipo -->
       <img src="https://placehold.co/40x40.png?text=Logo" alt="Logotipo" style="height: 40px; width: auto; border-radius: 4px;" />
       <!-- Nome do Escritório -->
-      <h1 style="font-size: 1.5rem; margin: 0;">Escritório Jurídico Barba</h1>
+      <h1 style="font-size: 1.5rem; margin: 0;">Escritório Jurídico Sampaio</h1>
     </div>
 
     <!-- Menu Desktop -->
@@ -180,7 +180,7 @@
     </nav>
 
     <!-- Botão do Menu Mobile -->
-    <div class="menu-toggle" id="menuToggle" style="display: none; font-size: 1.5rem; cursor: pointer; color: white;">☰ Menu</div>
+    <div class="menu-toggle" id="menuToggle" style="display: none; font-size: 1.5rem; cursor: pointer; color: white; user-select: none;">☰</div>
   </header>
 
   <main>
