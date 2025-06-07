@@ -177,6 +177,9 @@
 <body>
 
   <header style="background: linear-gradient(90deg, rgba(139,0,0,0.95) 0%, rgba(0,0,0,0.85) 100%); color: var(--secondary); padding: 1rem 2rem; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+    <!-- Overlay para fechar menu ao clicar fora -->
+    <div id="navOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 998;"></div>
+
     <div style="display: flex; align-items: center; gap: 1rem;">
       <!-- Logotipo -->
       <img src="logo.png" alt="Logotipo" style="height: 80px; width: auto; border-radius: 4px;" />
@@ -562,6 +565,7 @@
   const links = document.querySelectorAll('nav a');
   const nav = document.getElementById('mainNav');
   const menuToggle = document.getElementById('menuToggle');
+  const overlay = document.getElementById('navOverlay');
 
   function showSection(id) {
     sections.forEach(section => section.classList.remove('active'));
@@ -575,7 +579,7 @@
     }
   }
 
-  // Fechar menu ao clicar em link
+  // Fechar menu ao clicar nos links
   links.forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
@@ -584,15 +588,24 @@
 
       if (window.innerWidth <= 768) {
         nav.classList.remove('open');
+        if (overlay) overlay.style.display = 'none';
       }
     });
   });
 
   // Abrir/fechar menu hamburguer
-  if (menuToggle) {
+  if (menuToggle && nav) {
     menuToggle.addEventListener('click', () => {
       nav.classList.toggle('open');
-      console.log('Botão hamburguer clicado! Menu aberto?', nav.classList.contains('open'));
+      if (overlay) overlay.style.display = nav.classList.contains('open') ? 'block' : 'none';
+    });
+  }
+
+  // Fechar menu ao clicar no overlay
+  if (overlay) {
+    overlay.addEventListener('click', () => {
+      nav.classList.remove('open');
+      overlay.style.display = 'none';
     });
   }
 
@@ -600,6 +613,7 @@
   window.addEventListener('resize', () => {
     if (window.innerWidth > 768) {
       nav.classList.remove('open');
+      if (overlay) overlay.style.display = 'none';
     }
   });
 
