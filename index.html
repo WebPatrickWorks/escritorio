@@ -159,25 +159,25 @@
 </head>
 <body>
 
-  <header style="background: linear-gradient(90deg, rgba(139,0,0,0.95) 0%, rgba(0,0,0,0.85) 100%); color: var(--secondary); padding: 1rem 2rem; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 5px rgba(0,0,0,0.6);">    
+  <header style="background: linear-gradient(90deg, rgba(139,0,0,0.95) 0%, rgba(0,0,0,0.85) 100%); color: var(--secondary); padding: 1rem 2rem; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
     <div style="display: flex; align-items: center; gap: 1rem;">
-        <!-- Logotipo -->
-        <img src="logo.png" alt="Logotipo do Escritório Jurídico Barbosa" style="height: 80px; width: auto; border-radius: 4px;" />
-        <!-- Nome do Escritório -->
-        <h1 style="font-size: 1.5rem; margin: 0;">Escritório Barbosa Advogados</h1>
+      <!-- Logotipo -->
+      <img src="https://placehold.co/40x40.png?text=Logo" alt="Logotipo" style="height: 40px; width: auto; border-radius: 4px;" />
+      <!-- Nome do Escritório -->
+      <h1 style="font-size: 1.5rem; margin: 0;">Escritório Jurídico Sampaio</h1>
     </div>
-    
+
     <!-- Menu Desktop -->
     <nav id="mainNav" style="display: flex; gap: 1.5rem; align-items: center;">
-        <a href="#home" style="color: var(--secondary); text-decoration: none; font-weight: 500; transition: color 0.3s;">Home</a> 
-        <a href="#correspondente" style="color: var(--secondary); text-decoration: none; font-weight: 500; transition: color 0.3s;">Advocacia Correspondente</a>
-        <a href="#atuacao" style="color: var(--secondary); text-decoration: none; font-weight: 500; transition: color 0.3s;">Áreas de Atuação</a>
-        <a href="#advogados" style="color: var(--secondary); text-decoration: none; font-weight: 500; transition: color 0.3s;">Advogados</a>
-        <a href="#leis" style="color: var(--secondary); text-decoration: none; font-weight: 500; transition: color 0.3s;">Leis</a>
+      <a href="#home" style="color: var(--secondary); text-decoration: none; font-weight: 500; transition: color 0.3s;">Home</a> 
+      <a href="#correspondente" style="color: var(--secondary); text-decoration: none; font-weight: 500; transition: color 0.3s;">Advocacia Correspondente</a>
+      <a href="#atuacao" style="color: var(--secondary); text-decoration: none; font-weight: 500; transition: color 0.3s;">Áreas de Atuação</a>
+      <a href="#advogados" style="color: var(--secondary); text-decoration: none; font-weight: 500; transition: color 0.3s;">Advogados</a>
+      <a href="#leis" style="color: var(--secondary); text-decoration: none; font-weight: 500; transition: color 0.3s;">Leis</a>
     </nav>
-    
+
     <!-- Botão do Menu Mobile -->
-    <div class="menu-toggle" id="menuToggle" style="display: none; font-size: 1.5rem; cursor: pointer;">&#9776;</div>
+    <div class="menu-toggle" id="menuToggle" style="display: none; font-size: 1.5rem; cursor: pointer; color: white; user-select: none;">☰</div>
   </header>
 
   <main>
@@ -587,6 +587,64 @@
   });
 
   // Garantir início no topo ao carregar
+  window.addEventListener('load', () => {
+    const hash = window.location.hash || '#home';
+    showSection(hash);
+    window.scrollTo(0, 0);
+  });
+
+  window.addEventListener('hashchange', () => {
+    const hash = window.location.hash || '#home';
+    showSection(hash);
+  });
+</script>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const links = document.querySelectorAll('nav a');
+  const nav = document.getElementById('mainNav');
+  const menuToggle = document.getElementById('menuToggle');
+
+  function showSection(id) {
+    sections.forEach(section => section.classList.remove('active'));
+    const targetSection = document.querySelector(id);
+    if (targetSection) {
+      targetSection.classList.add('active');
+      window.scrollTo({
+        top: targetSection.getBoundingClientRect().top + window.scrollY - 120,
+        behavior: 'smooth'
+      });
+    }
+  }
+
+  links.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = link.getAttribute('href');
+      showSection(targetId);
+
+      // Fechar menu mobile
+      if (window.innerWidth <= 768) {
+        nav.classList.remove('open');
+      }
+    });
+  });
+
+  // Toggle menu mobile
+  if (menuToggle) {
+    menuToggle.addEventListener('click', () => {
+      nav.classList.toggle('open');
+    });
+  }
+
+  // Fechar menu ao redimensionar para desktop
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+      nav.classList.remove('open');
+    }
+  });
+
+  // Carregar página
   window.addEventListener('load', () => {
     const hash = window.location.hash || '#home';
     showSection(hash);
