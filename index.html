@@ -84,7 +84,7 @@
     /* Responsive */
     @media (max-width: 768px) {
       nav#mainNav {
-        display: none;
+        display: none; /* Ocultar por padrão */
         flex-direction: column;
         background-color: var(--primary);
         position: absolute;
@@ -93,11 +93,11 @@
         width: 100%;
         text-align: center;
         z-index: 999;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       }
 
       nav#mainNav.open {
-        display: flex;
+        display: flex; /* Mostrar apenas quando a classe .open for adicionada */
       }
 
       nav#mainNav a {
@@ -559,52 +559,6 @@
 <script>
   const sections = document.querySelectorAll('section');
   const links = document.querySelectorAll('nav a');
-
-  function showSection(id) {
-    sections.forEach(section => {
-      section.classList.remove('active');
-    });
-    const targetSection = document.querySelector(id);
-    if (targetSection) {
-      targetSection.classList.add('active');
-
-      // Rolagem suave com ajuste refinado (-120 ou -140)
-      window.scrollTo({
-        top: targetSection.getBoundingClientRect().top + window.scrollY - 120,
-        behavior: 'smooth'
-      });
-    }
-  }
-
-  links.forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      const targetId = link.getAttribute('href');
-      showSection(targetId);
-
-      // Fechar menu mobile
-      if (window.innerWidth <= 768) {
-        document.getElementById('mainNav').classList.remove('open');
-      }
-    });
-  });
-
-  // Garantir início no topo ao carregar
-  window.addEventListener('load', () => {
-    const hash = window.location.hash || '#home';
-    showSection(hash);
-    window.scrollTo(0, 0);
-  });
-
-  window.addEventListener('hashchange', () => {
-    const hash = window.location.hash || '#home';
-    showSection(hash);
-  });
-</script>
-
-<script>
-  const sections = document.querySelectorAll('section');
-  const links = document.querySelectorAll('nav a');
   const nav = document.getElementById('mainNav');
   const menuToggle = document.getElementById('menuToggle');
 
@@ -620,20 +574,21 @@
     }
   }
 
+  // Navegação entre seções e fechar menu mobile
   links.forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
       const targetId = link.getAttribute('href');
       showSection(targetId);
 
-      // Fechar menu mobile
+      // Fechar menu mobile após selecionar uma opção
       if (window.innerWidth <= 768) {
         nav.classList.remove('open');
       }
     });
   });
 
-  // Toggle menu mobile
+  // Toggle menu mobile (abrir/fechar)
   if (menuToggle) {
     menuToggle.addEventListener('click', () => {
       nav.classList.toggle('open');
