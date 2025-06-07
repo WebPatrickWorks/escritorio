@@ -101,15 +101,12 @@
         left: 0;
         width: 100%;
         text-align: center;
-        z-index: 999;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
       }
+
       nav.open a {
         display: block;
-        padding: 1rem;
-        border-bottom: 1px solid rgba(255,255,255,0.15);
-        font-size: 1.1rem;
-        color: white !important;
+        padding: 0.75rem;
+        border-bottom: 1px solid rgba(255,255,255,0.2);
       }
     }
 
@@ -180,7 +177,7 @@
     </nav>
     
     <!-- Botão do Menu Mobile -->
-    <div class="menu-toggle" id="menuToggle" style="display: none; font-size: 1.5rem; cursor: pointer; color: white;">☰ Menu</div>
+    <div class="menu-toggle" id="menuToggle" style="display: none; font-size: 1.5rem; cursor: pointer;">&#9776;</div>
   </header>
 
   <main>
@@ -590,64 +587,6 @@
   });
 
   // Garantir início no topo ao carregar
-  window.addEventListener('load', () => {
-    const hash = window.location.hash || '#home';
-    showSection(hash);
-    window.scrollTo(0, 0);
-  });
-
-  window.addEventListener('hashchange', () => {
-    const hash = window.location.hash || '#home';
-    showSection(hash);
-  });
-</script>
-
-<script>
-  const sections = document.querySelectorAll('section');
-  const links = document.querySelectorAll('nav a');
-  const nav = document.getElementById('mainNav');
-  const menuToggle = document.getElementById('menuToggle');
-
-  function showSection(id) {
-    sections.forEach(section => section.classList.remove('active'));
-    const targetSection = document.querySelector(id);
-    if (targetSection) {
-      targetSection.classList.add('active');
-      window.scrollTo({
-        top: targetSection.getBoundingClientRect().top + window.scrollY - 120,
-        behavior: 'smooth'
-      });
-    }
-  }
-
-  links.forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      const targetId = link.getAttribute('href');
-      showSection(targetId);
-
-      // Fechar menu mobile
-      if (window.innerWidth <= 768) {
-        nav.classList.remove('open');
-      }
-    });
-  });
-
-  // Mostrar/esconder menu mobile
-  if (menuToggle) {
-    menuToggle.addEventListener('click', () => {
-      nav.classList.toggle('open');
-    });
-  }
-
-  // Detectar resize para esconder menu se aumentar tela
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 768) {
-      nav.classList.remove('open');
-    }
-  });
-
-  // Carregar página
   window.addEventListener('load', () => {
     const hash = window.location.hash || '#home';
     showSection(hash);
