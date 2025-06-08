@@ -172,6 +172,42 @@
     .law-item strong {
       color: var(--primary);
     }
+    
+    #modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.7);
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    #modalContent {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 600px;
+      width: 90%;
+      position: relative;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    }
+
+    #closeModal {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
@@ -384,7 +420,7 @@
         </div>
 
         <div style="max-width: 960px; margin: 0 auto; padding: 0 1rem;">
-          <p style="color: #333; font-size: 1rem; line-height: 1.7; margin-bottom: 2rem;">
+          <p style="text-align: left; color: #333; font-size: 1rem; line-height: 1.7; margin-bottom: 2rem;">
             Nossa equipe realiza diligências jurídicas e administrativas em diversos estados do país, garantindo o cumprimento eficiente de prazos e a execução cuidadosa de atividades essenciais para o bom andamento dos processos.
           </p>
 
@@ -464,7 +500,13 @@
             <p style="color: #555; font-size: 0.95rem; line-height: 1.5;">
               Contratos, obrigações, família e sucessões.
             </p>
-            <a href="#atuacao" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: bold; text-decoration: none; border-bottom: 1px solid var(--primary);">Ver detalhes</a>
+            <!-- <a href="#atuacao" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: bold; text-decoration: none; border-bottom: 1px solid var(--primary);">Ver detalhes</a> -->
+            <a href="#atuacao" class="open-modal" 
+              data-title="Direito Civil" 
+              data-description="Contratos, obrigações, família e sucessões. O Direito Civil é responsável por regular as relações entre pessoas físicas e jurídicas no âmbito não penal. Abrange desde contratos comerciais até questões familiares e sucessórias."
+              style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: bold; text-decoration: none; border-bottom: 1px solid var(--primary);">
+              Ver detalhes
+            </a>
           </div>
       
           <div style="background: white; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); transition: transform 0.3s ease; padding: 1.5rem; text-align: center;">
@@ -477,7 +519,14 @@
             <p style="color: #555; font-size: 0.95rem; line-height: 1.5;">
               Ações trabalhistas, consultoria e acordos coletivos.
             </p>
-            <a href="#atuacao" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: bold; text-decoration: none; border-bottom: 1px solid var(--primary);">Ver detalhes</a>
+            <a href="#atuacao" class="open-modal" 
+              data-title="Direito Trabalhista" 
+              data-description="Prestamos assessoria jurídica a empresas e trabalhadores, atuando em ações judiciais, defesas trabalhistas, cálculos de verbas rescisórias, reclamatórias, acidentes de trabalho, reconhecimento de vínculo, entre outras demandas.
+              Para empresas, oferecemos consultoria preventiva com o objetivo de mitigar riscos e estruturar relações de trabalho de forma regular e eficiente, contribuindo para a sustentabilidade do negócio.
+              Nossa atuação é marcada pelo profundo conhecimento da legislação e jurisprudência atualizada, sempre com foco na segurança jurídica e na justiça das relações laborais."
+              style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: bold; text-decoration: none; border-bottom: 1px solid var(--primary);">
+              Ver detalhes
+            </a>
           </div>
       
           <div style="background: white; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); transition: transform 0.3s ease; padding: 1.5rem; text-align: center;">
@@ -490,7 +539,14 @@
             <p style="color: #555; font-size: 0.95rem; line-height: 1.5;">
               Orientação fiscal e defesa em disputas tributárias.
             </p>
-            <a href="#atuacao" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: bold; text-decoration: none; border-bottom: 1px solid var(--primary);">Ver detalhes</a>
+            <a href="#atuacao" class="open-modal" 
+              data-title="Direito Tributário" 
+              data-description="Oferecemos assessoria especializada na gestão e regularização de obrigações fiscais, atuando em demandas administrativas e judiciais que envolvem tributos federais, estaduais e municipais.
+              Realizamos planejamento tributário, defesas em execuções fiscais, impugnações de autos de infração, além de orientar empresas e contribuintes sobre transações tributárias, compensações e parcelamentos.
+              Nosso objetivo é reduzir passivos tributários e garantir o equilíbrio financeiro dos nossos clientes, com base em estratégias legais seguras e personalizadas."
+              style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: bold; text-decoration: none; border-bottom: 1px solid var(--primary);">
+              Ver detalhes
+            </a>
           </div>
       
           <div style="background: white; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); transition: transform 0.3s ease; padding: 1.5rem; text-align: center;">
@@ -503,7 +559,14 @@
             <p style="color: #555; font-size: 0.95rem; line-height: 1.5;">
               Direito societário, compliance e recuperação judicial.
             </p>
-            <a href="#atuacao" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: bold; text-decoration: none; border-bottom: 1px solid var(--primary);">Ver detalhes</a>
+            <a href="#atuacao" class="open-modal" 
+              data-title="Direito Empresarial" 
+              data-description="Apoiamos empresas em todas as fases de sua atuação jurídica, desde a constituição, elaboração de contratos e alterações societárias, até a gestão de litígios e crises jurídicas.
+              Oferecemos consultoria para estruturação societária, prevenção de passivos trabalhistas e tributários, compliance, governança corporativa, além de representação em disputas comerciais.
+              Nosso compromisso é com a segurança jurídica e o crescimento sustentável dos negócios, promovendo soluções práticas, ágeis e eficientes."
+              style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: bold; text-decoration: none; border-bottom: 1px solid var(--primary);">
+              Ver detalhes
+            </a>
           </div>
       
           <div style="background: white; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); transition: transform 0.3s ease; padding: 1.5rem; text-align: center;">
@@ -516,7 +579,14 @@
             <p style="color: #555; font-size: 0.95rem; line-height: 1.5;">
               Divórcios, inventários, guarda e pensão alimentícia.
             </p>
-            <a href="#atuacao" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: bold; text-decoration: none; border-bottom: 1px solid var(--primary);">Ver detalhes</a>
+                        <a href="#atuacao" class="open-modal" 
+              data-title="Direito de Família" 
+              data-description="Atuamos com sensibilidade e técnica em questões que envolvem relações familiares e sucessórias, como divórcios, separações, guarda e visitação, alimentos, interdições, adoções e inventários.
+              Prezamos por uma atuação humanizada, com escuta atenta e orientação clara, buscando preservar vínculos familiares e garantir os direitos das partes envolvidas, especialmente de crianças e idosos.
+              Nosso foco é resolver conflitos de forma eficaz e com o menor impacto emocional possível, seja pela via judicial ou por meios alternativos de resolução, como a mediação."
+              style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: bold; text-decoration: none; border-bottom: 1px solid var(--primary);">
+              Ver detalhes
+            </a>
           </div>
       
           <div style="background: white; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); transition: transform 0.3s ease; padding: 1.5rem; text-align: center;">
@@ -529,7 +599,14 @@
             <p style="color: #555; font-size: 0.95rem; line-height: 1.5;">
               Assessoria jurídica localizada em todo o Brasil.
             </p>
-            <a href="#correspondente" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: bold; text-decoration: none; border-bottom: 1px solid var(--primary);">Ver detalhes</a>
+            <a href="#atuacao" class="open-modal" 
+              data-title="Advocacia de Apoio" 
+              data-description="Somos parceiros de advogados e escritórios de todo o país na execução de diligências jurídicas e administrativas com rapidez, responsabilidade e compromisso com o resultado.
+              Prestamos serviços como audiências, protocolos, cumprimento de mandados, retirada de alvarás, visitas a órgãos públicos, entre outros, sempre com comunicação transparente e cumprimento rigoroso dos prazos.
+              Nossa advocacia de apoio é focada em fortalecer parcerias profissionais com ética e excelência, garantindo representação local qualificada."
+              style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: bold; text-decoration: none; border-bottom: 1px solid var(--primary);">
+              Ver detalhes
+            </a>
           </div>
       
         </div>
@@ -649,6 +726,17 @@
     &copy; 2025 Escritório Jurídico Barbosa Advogados. Todos os direitos reservados.
   </footer>
 
+
+  <!-- Modal -->
+  <div id="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.7); z-index: 9999; justify-content: center; align-items: center;">
+    <div id="modalContent" style="background: white; padding: 2rem; border-radius: 12px; max-width: 600px; width: 90%; position: relative; box-shadow: 0 8px 30px rgba(0,0,0,0.1);">
+      <button id="closeModal" style="position: absolute; top: 1rem; right: 1rem; background: var(--primary); color: white; border: none; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; font-weight: bold;">Fechar</button>
+      <h2 id="modalTitle" style="color: var(--primary); font-size: 1.8rem; margin-bottom: 1rem;"></h2>
+      <p id="modalDescription" style="font-size: 1rem; line-height: 1.6; color: #333;"></p>
+    </div>
+  </div>
+
+
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const contatoSection = document.getElementById('contato');
@@ -757,5 +845,83 @@
       showSection(hash);
     });
   </script>
+
+  <script>
+    const modal = document.getElementById('modal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDescription = document.getElementById('modalDescription');
+    const closeModal = document.getElementById('closeModal');
+
+    let currentSectionId = '#atuacao'; // Padrão ao abrir o modal
+
+    // Abrir modal com dados dinâmicos
+    document.querySelectorAll('.open-modal').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const title = this.getAttribute('data-title');
+        const description = this.getAttribute('data-description');
+
+        modal.style.display = 'flex';
+        modalTitle.textContent = title;
+        modalDescription.textContent = description;
+
+        // Impede rolagem da página
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    // Fechar modal
+    closeModal.addEventListener('click', () => {
+      modal.style.display = 'none';
+      document.body.style.overflow = '';
+
+      // Força a exibição da seção #atuacao
+      showSection(currentSectionId);
+    });
+
+    // Fechar ao clicar fora do modal
+    modal.addEventListener('click', function(e) {
+      if (e.target === this) {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+
+        // Força a exibição da seção #atuacao
+        showSection(currentSectionId);
+      }
+    });
+
+    // Função showSection existente para navegação
+    function showSection(id) {
+      document.querySelectorAll('section').forEach(section => {
+        section.classList.remove('active');
+      });
+
+      const targetSection = document.querySelector(id);
+      if (targetSection) {
+        targetSection.classList.add('active');
+
+        window.scrollTo({
+          top: targetSection.getBoundingClientRect().top + window.scrollY - 80,
+          behavior: 'smooth'
+        });
+      }
+    }
+
+    // Inicialização inicial
+    window.addEventListener('load', () => {
+      const hash = window.location.hash || '#home';
+      showSection(hash);
+    });
+
+    window.addEventListener('hashchange', () => {
+      const hash = window.location.hash || '#home';
+      showSection(hash);
+    });
+  </script>
+
+  <script>
+    console.log('Seção atual:', document.querySelector('section.active').id);
+  </script>
+  
 </body>
 </html>
