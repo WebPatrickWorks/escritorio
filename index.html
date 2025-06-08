@@ -65,7 +65,7 @@
     }
 
     section.active {
-      display: block;
+      display: block !important;
     }
 
     @keyframes fadeIn {
@@ -194,6 +194,7 @@
       <a href="#atuacao" style="color: var(--secondary); text-decoration: none; font-weight: 500; transition: color 0.3s;">Áreas de Atuação</a>
       <a href="#advogados" style="color: var(--secondary); text-decoration: none; font-weight: 500; transition: color 0.3s;">Advogados</a>
       <a href="#leis" style="color: var(--secondary); text-decoration: none; font-weight: 500; transition: color 0.3s;">Leis ou Artigos (?)</a>
+      <a href="#contato" style="display: none; margin-top: 1rem; color: var(--secondary); font-weight: bold; text-decoration: none; border-bottom: 1px solid var(--secondary);">Contato</a>
     </nav>
 
     <!-- Botão do Menu Mobile -->
@@ -218,7 +219,7 @@
             Atuamos com ética, estratégia e resultado nas principais áreas do Direito.
           </p>
           <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-            <a href="#contato" style="background: var(--primary); color: white; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: bold; min-width: 140px; text-align: center;">Entre em contato</a>
+            <a href="#contato-main" style="background: var(--primary); color: white; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: bold; min-width: 140px; text-align: center;">Entre em contato</a>
             <a href="#atuacao" style="background: #b22222; color: white; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: bold; min-width: 140px; text-align: center;">Saiba mais</a>
           </div>
         </div>
@@ -238,7 +239,7 @@
             Atuamos com ética, estratégia e resultado nas principais áreas do Direito.
           </p>
           <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-            <a href="#contato" style="background: var(--primary); color: white; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: bold; min-width: 140px; text-align: center;">Entre em contato</a>
+            <a href="#contato-main" style="background: var(--primary); color: white; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: bold; min-width: 140px; text-align: center;">Entre em contato</a>
             <a href="#atuacao" style="background: #b22222; color: white; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: bold; min-width: 140px; text-align: center;">Saiba mais</a>
           </div>
         </div>
@@ -323,7 +324,7 @@
         </div>
 
         <!-- Contato -->
-        <div id="contato" style="margin-top: 3rem; text-align: center;">
+        <div id="contato-main" style="margin-top: 3rem; text-align: center;">
           <h2 style="color: var(--primary); margin-bottom: 1.5rem;">Entre em Contato</h2>
           <div style="background: white; border: 1px solid #ddd; border-radius: 12px; padding: 2rem; max-width: 700px; margin: 0 auto; box-shadow: 0 4px 16px rgba(0,0,0,0.05);">
             <p style="color: #666; font-size: 1rem; margin-bottom: 1rem;">
@@ -485,32 +486,47 @@
           <!-- Card Advogado -->
           <div style="background: white; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); transition: transform 0.3s ease; text-align: center; padding: 1.5rem;">
             <img src="adv-homem.png" alt="Dr. João Sampaio" style="border-radius: 50%; width: 120px; height: 120px; object-fit: cover; margin: 0 auto 1rem; border: 3px solid var(--primary);" />
-            <h3 style="margin-bottom: 0.5rem; font-size: 1.3rem; color: var(--primary);">Dr. João Sampaio</h3>
+            <h3 style="margin-bottom: 0.25rem; font-size: 1.3rem; color: var(--primary);">Dr. João Sampaio</h3>
+            <p style="font-size: 0.8rem; color: #999; margin-bottom: 0.75rem; font-weight: 500;">OAB/DF 0.000</p>
             <p style="color: #666; font-size: 0.95rem; margin-bottom: 1rem;">Direito Penal e Constitucional</p>
             <p style="font-size: 0.9rem; color: #777; line-height: 1.5;">
               Com vasta experiência em Direito Penal e Constitucional, Dr. João defende causas complexas com ética e estratégia.
             </p>
-            <a href="mailto:joaosampaio@escritorio.com" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: bold; text-decoration: none; border-bottom: 1px solid var(--primary);">Contato</a>
+            <a href="#contato" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: bold; text-decoration: none; border-bottom: 1px solid var(--primary);">Contato</a>
           </div>
       
           <div style="background: white; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); transition: transform 0.3s ease; text-align: center; padding: 1.5rem;">
             <img src="adv-mulher.png"  alt="Dra. Ana Clara" style="border-radius: 50%; width: 120px; height: 120px; object-fit: cover; margin: 0 auto 1rem; border: 3px solid var(--primary);" />
-            <h3 style="margin-bottom: 0.5rem; font-size: 1.3rem; color: var(--primary);">Dra. Ana Clara</h3>
+            <h3 style="margin-bottom: 0.25rem; font-size: 1.3rem; color: var(--primary);">Dra. Ana Clara</h3>
+            <p style="font-size: 0.8rem; color: var(--primary); margin-bottom: 0.75rem; font-weight: 500;">OAB/DF 0.000</p>
             <p style="color: #666; font-size: 0.95rem; margin-bottom: 1rem;">Direito Civil e Família</p>
             <p style="font-size: 0.9rem; color: #777; line-height: 1.5;">
               Dra. Ana Clara atua com respeito e compromisso nas áreas de Direito Civil e Família, buscando sempre a melhor solução para seus clientes.
             </p>
-            <a href="mailto:anaclara@escritorio.com" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: bold; text-decoration: none; border-bottom: 1px solid var(--primary);">Contato</a>
+            <a href="#contato" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: bold; text-decoration: none; border-bottom: 1px solid var(--primary);">Contato</a>
           </div>
       
           <div style="background: white; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); transition: transform 0.3s ease; text-align: center; padding: 1.5rem;">
             <img src="adv-homem-1.png"  alt="Dr. Pedro Lima" style="border-radius: 50%; width: 120px; height: 120px; object-fit: cover; margin: 0 auto 1rem; border: 3px solid var(--primary);" />
-            <h3 style="margin-bottom: 0.5rem; font-size: 1.3rem; color: var(--primary);">Dr. Pedro Lima</h3>
+            <h3 style="margin-bottom: 0.25rem; font-size: 1.3rem; color: var(--primary);">Dr. Pedro Lima</h3>
+            <p style="font-size: 0.8rem; color: var(--primary); margin-bottom: 0.75rem; font-weight: 500;">OAB/DF 0.000</p>
             <p style="color: #666; font-size: 0.95rem; margin-bottom: 1rem;">Direito Empresarial e Trabalhista</p>
             <p style="font-size: 0.9rem; color: #777; line-height: 1.5;">
               Especializado em Direito Empresarial e Trabalhista, Dr. Pedro traz expertise e agilidade aos processos consultivos e contenciosos.
             </p>
-            <a href="mailto:pedrolima@escritorio.com" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: bold; text-decoration: none; border-bottom: 1px solid var(--primary);">Contato</a>
+            <a href="#contato" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: bold; text-decoration: none; border-bottom: 1px solid var(--primary);">Contato</a>
+          </div>
+
+          <div style="background: white; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); transition: transform 0.3s ease; text-align: center; padding: 1.5rem;">
+            <img src="patrick1.png"  alt="Dr. Patrick Bartholo" style="border-radius: 50%; width: 120px; height: 120px; object-fit: cover; margin: 0 auto 1rem; border: 3px solid var(--primary);" />
+            <h3 style="margin-bottom: 0.25rem; font-size: 1.3rem; color: var(--primary);">Dr. Patrick Bartholo</h3>
+            <p style="font-size: 0.8rem; color: var(--primary); margin-bottom: 0.75rem; font-weight: 500;">OAB/DF 31.229</p>
+            <p style="color: #666; font-size: 0.95rem; margin-bottom: 1rem;">Direito Digital e Tributário</p>
+            <p style="text-align: justify; margin: 0 auto; font-size: 0.9rem; color: #777; line-height: 1.5;">
+              Advogado com sólida formação acadêmica e atuação estratégica nas áreas do Direito Digital, Eletrônico e Internacional.
+              É pós-graduado em Direito Digital, Direito Eletrônico e Direito Internacional, com graduação em Direito pela Universidade de Passo Fundo e formação em Análise de Sistemas pela Faculdade Sumaré.
+              Sua atuação destaca-se pela capacidade de unir conhecimento jurídico e tecnológico, o que lhe confere uma visão ampliada para lidar com desafios jurídicos da era digital.            </p>
+            <a href="#contato" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: bold; text-decoration: none; border-bottom: 1px solid var(--primary);">Contato</a>
           </div>
       
         </div>
@@ -531,6 +547,39 @@
           <strong>Estatuto da Criança e do Adolescente:</strong> Lei 8.069/90 – Proteção infantil.
         </div>
       </section>
+
+      <!-- Seção Contato -->
+      <section id="contato" class="contact-section" style="display: none; padding: 4rem 2rem;">
+        <div style="max-width: 800px; margin: auto; text-align: center;">
+          <h2 style="color: var(--primary); font-size: 2.5rem; margin-bottom: 1rem;">Entre em Contato</h2>
+          <p style="color: #555; font-size: 1.1rem; margin-bottom: 2rem;">
+            Preencha o formulário abaixo ou utilize nossos dados para entrar em contato conosco.
+          </p>
+
+          <!-- Formulário de Contato -->
+          <form style="text-align: left; display: grid; gap: 1rem; max-width: 600px; margin: auto;">
+            <input type="text" placeholder="Seu nome" required style="padding: 0.75rem; border: 1px solid #ccc; border-radius: 6px;" />
+            <input type="email" placeholder="Seu e-mail" required style="padding: 0.75rem; border: 1px solid #ccc; border-radius: 6px;" />
+            <textarea placeholder="Sua mensagem" rows="5" required style="padding: 0.75rem; border: 1px solid #ccc; border-radius: 6px;"></textarea>
+            <button type="submit" style="background-color: var(--primary); color: white; padding: 0.75rem; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.3s;">
+              Enviar Mensagem
+            </button>
+          </form>
+
+          <hr style="margin: 3rem 0; border: none; border-top: 1px solid #eee;" />
+
+          <!-- Dados de Contato -->
+          <div style="margin-top: 2rem; color: #333;">
+            <h3 style="color: var(--primary); font-size: 1.5rem; margin-bottom: 1rem;">Informações de Contato</h3>
+            <p style="margin-bottom: 0.5rem;"><strong>Endereço:</strong><br>Rua Endereço Aqui, 123 - Centro, Sobradinho - DF</p>
+            <p style="margin-bottom: 0.5rem;"><strong>Telefone:</strong><br>(61) 9999-99991</p>
+            <p style="margin-bottom: 0.5rem;"><strong>E-mail:</strong><br>contato@advbarbosa.com.br</p>
+            <p style="margin-top: 1.5rem; font-size: 0.9rem; color: #777;">
+              Atendemos em todo o território nacional com agilidade e profissionalismo.
+            </p>
+          </div>
+        </div>
+      </section>      
     </div>
   </main>
 
@@ -538,94 +587,113 @@
     &copy; 2025 Escritório Jurídico Barbosa Advogados. Todos os direitos reservados.
   </footer>
 
-</body>
-</html>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const contatoSection = document.getElementById('contato');
+      console.log('Seção #contato encontrada?', contatoSection ? 'Sim' : 'Não');
+    });
+  </script>
 
-<script>
-  // Rolagem suave para links internos
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      e.preventDefault();
+  <script>
+    // Rolagem suave para links internos
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
 
-      const targetId = this.getAttribute('href');
-      const targetElement = document.querySelector(targetId);
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
 
-      if (targetElement) {
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.getBoundingClientRect().top + window.scrollY - 80, // ajuste fino
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+
+  <script>
+    const sections = document.querySelectorAll('section');
+    const links = document.querySelectorAll('nav a');
+    const nav = document.getElementById('mainNav');
+    const menuToggle = document.getElementById('menuToggle');
+    const overlay = document.getElementById('navOverlay');
+
+  
+    function showSection(id) {
+      sections.forEach(section => section.classList.remove('active'));
+
+      const targetSection = document.querySelector(id);
+      if (targetSection) {
+        targetSection.classList.add('active');
+
+        // Rolagem suave até a seção
         window.scrollTo({
-          top: targetElement.getBoundingClientRect().top + window.scrollY - 80, // ajuste fino
+          top: targetSection.getBoundingClientRect().top + window.scrollY - 100,
           behavior: 'smooth'
         });
       }
+    }
+
+    // Adicionar evento aos links internos (como o do contato)
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        showSection(targetId);
+      });
     });
-  });
-</script>
 
-<script>
-  const sections = document.querySelectorAll('section');
-  const links = document.querySelectorAll('nav a');
-  const nav = document.getElementById('mainNav');
-  const menuToggle = document.getElementById('menuToggle');
-  const overlay = document.getElementById('navOverlay');
+    // Fechar menu ao clicar nos links
+    links.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href');
+        showSection(targetId);
 
-  function showSection(id) {
-    sections.forEach(section => section.classList.remove('active'));
-    const targetSection = document.querySelector(id);
-    if (targetSection) {
-      targetSection.classList.add('active');
-      window.scrollTo({
-        top: targetSection.getBoundingClientRect().top + window.scrollY - 120,
-        behavior: 'smooth'
+        if (window.innerWidth <= 768) {
+          nav.classList.remove('open');
+          if (overlay) overlay.style.display = 'none';
+        }
+      });
+    });
+
+    // Abrir/fechar menu hamburguer
+    if (menuToggle && nav) {
+      menuToggle.addEventListener('click', () => {
+        nav.classList.toggle('open');
+        if (overlay) overlay.style.display = nav.classList.contains('open') ? 'block' : 'none';
       });
     }
-  }
 
-  // Fechar menu ao clicar nos links
-  links.forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      const targetId = link.getAttribute('href');
-      showSection(targetId);
+    // Fechar menu ao clicar no overlay
+    if (overlay) {
+      overlay.addEventListener('click', () => {
+        nav.classList.remove('open');
+        overlay.style.display = 'none';
+      });
+    }
 
-      if (window.innerWidth <= 768) {
+    // Fechar menu ao redimensionar
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) {
         nav.classList.remove('open');
         if (overlay) overlay.style.display = 'none';
       }
     });
-  });
 
-  // Abrir/fechar menu hamburguer
-  if (menuToggle && nav) {
-    menuToggle.addEventListener('click', () => {
-      nav.classList.toggle('open');
-      if (overlay) overlay.style.display = nav.classList.contains('open') ? 'block' : 'none';
+    // Inicialização da página
+    window.addEventListener('load', () => {
+      const hash = window.location.hash || '#home';
+      showSection(hash);
+      window.scrollTo(0, 0);
     });
-  }
 
-  // Fechar menu ao clicar no overlay
-  if (overlay) {
-    overlay.addEventListener('click', () => {
-      nav.classList.remove('open');
-      overlay.style.display = 'none';
+    window.addEventListener('hashchange', () => {
+      const hash = window.location.hash || '#home';
+      showSection(hash);
     });
-  }
-
-  // Fechar menu ao redimensionar
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 768) {
-      nav.classList.remove('open');
-      if (overlay) overlay.style.display = 'none';
-    }
-  });
-
-  // Inicialização da página
-  window.addEventListener('load', () => {
-    const hash = window.location.hash || '#home';
-    showSection(hash);
-    window.scrollTo(0, 0);
-  });
-
-  window.addEventListener('hashchange', () => {
-    const hash = window.location.hash || '#home';
-    showSection(hash);
-  });
-</script>
+  </script>
+</body>
+</html>
