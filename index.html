@@ -255,7 +255,7 @@
             Atuamos com ética, estratégia e resultado nas principais áreas do Direito.
           </p>
           <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-            <a href="#contato-main" style="background: var(--primary); color: white; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: bold; min-width: 140px; text-align: center;">Entre em contato</a>
+            <a href="#contato" style="background: var(--primary); color: white; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: bold; min-width: 140px; text-align: center;">Entre em contato</a>
             <a href="#atuacao" style="background: #b22222; color: white; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: bold; min-width: 140px; text-align: center;">Saiba mais</a>
           </div>
         </div>
@@ -275,7 +275,7 @@
             Atuamos com ética, estratégia e resultado nas principais áreas do Direito.
           </p>
           <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-            <a href="#contato-main" style="background: var(--primary); color: white; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: bold; min-width: 140px; text-align: center;">Entre em contato</a>
+            <a href="#contato" style="background: var(--primary); color: white; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: bold; min-width: 140px; text-align: center;">Entre em contato</a>
             <a href="#atuacao" style="background: #b22222; color: white; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: bold; min-width: 140px; text-align: center;">Saiba mais</a>
           </div>
         </div>
@@ -662,8 +662,8 @@
             <p style="font-size: 0.8rem; color: var(--primary); margin-bottom: 0.75rem; font-weight: 500;">OAB/DF 31.229</p>
             <p style="color: #666; font-size: 0.95rem; margin-bottom: 1rem;">Direito Digital e Tributário</p>
             <p style="text-align: justify; margin: 0 auto; font-size: 0.9rem; color: #777; line-height: 1.5;">
-              Advogado com sólida formação acadêmica e atuação estratégica nas áreas do Direito Digital, Eletrônico e Internacional.
-              É pós-graduado em Direito Digital, Direito Eletrônico e Direito Internacional, com graduação em Direito pela Universidade de Passo Fundo e formação em Análise de Sistemas pela Faculdade Sumaré.
+              Advogado com sólida formação acadêmica.
+              É pós-graduado em Direito Digital, Direito Eletrônico e Direito Internacional, com graduação em Direito pela Universidade de Passo Fundo e formação em Análise de Sistemas.
               Sua atuação destaca-se pela capacidade de unir conhecimento jurídico e tecnológico, o que lhe confere uma visão ampliada para lidar com desafios jurídicos da era digital.            </p>
             <a href="#contato" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: bold; text-decoration: none; border-bottom: 1px solid var(--primary);">Contato</a>
           </div>
@@ -890,22 +890,7 @@
       }
     });
 
-    // Função showSection existente para navegação
-    function showSection(id) {
-      document.querySelectorAll('section').forEach(section => {
-        section.classList.remove('active');
-      });
 
-      const targetSection = document.querySelector(id);
-      if (targetSection) {
-        targetSection.classList.add('active');
-
-        window.scrollTo({
-          top: targetSection.getBoundingClientRect().top + window.scrollY - 80,
-          behavior: 'smooth'
-        });
-      }
-    }
 
     // Inicialização inicial
     window.addEventListener('load', () => {
