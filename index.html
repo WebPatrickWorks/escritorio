@@ -151,18 +151,37 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
-    .advogado-card {
-      display: flex;
-      gap: 1rem;
-      align-items: center;
-      flex-wrap: wrap;
+    .card-advogado {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
+      text-align: center;
+      padding: 2rem 1.5rem;
     }
 
-    .advogado-card img {
-      width: 100px;
-      height: 100px;
-      object-fit: cover;
-      border-radius: 50%;
+    .card-advogado h3 {
+      margin-bottom: 0.25rem;
+      font-size: 1.4rem;
+      color: var(--primary);
+      font-weight: bold;
+    }
+
+    .card-advogado p.oab {
+      font-size: 0.85rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    .card-advogado a.btn-advogado-contact:hover {
+      background-color: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .card-advogado:hover {
+      transform: translateY(-5px);
     }
 
     .law-item {
@@ -619,55 +638,36 @@
             Conheça nossa equipe de advogados especializados, prontos para oferecer soluções jurídicas eficazes e personalizadas.
           </p>
         </div>
-      
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; padding: 0 1rem;">
-      
+
+        <!-- Container dos Cards -->
+        <div style="max-width: 700px; margin: 0 auto; display: flex; flex-direction: column; gap: 2rem;">
+
           <!-- Card Advogado -->
-          <div style="background: white; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); transition: transform 0.3s ease; text-align: center; padding: 1.5rem;">
-            <img src="adv-homem.png" alt="Dr. João Sampaio" style="border-radius: 50%; width: 120px; height: 120px; object-fit: cover; margin: 0 auto 1rem; border: 3px solid var(--primary);" />
-            <h3 style="margin-bottom: 0.25rem; font-size: 1.3rem; color: var(--primary);">Dr. Divino Barbosa</h3>
-            <p style="font-size: 0.8rem; color: var(--primary); margin-bottom: 0.75rem; font-weight: 500;">OAB/DF 26.913</p>
-            <p style="color: #666; font-size: 0.95rem; margin-bottom: 1rem;">Direito Penal e Constitucional</p>
-            <p style="font-size: 0.9rem; color: #777; line-height: 1.5;">
-              Com vasta experiência em Direito Penal e Constitucional, Dr. Divino defende causas complexas com ética e estratégia.
-            </p>
-            <a href="#contato" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: bold; text-decoration: none; border-bottom: 1px solid var(--primary);">Contato</a>
-          </div>
-      
-          <div style="background: white; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); transition: transform 0.3s ease; text-align: center; padding: 1.5rem;">
-            <img src="adv-mulher.png"  alt="Dra. Stephanie Gomes Vasconcelos Bastos" style="border-radius: 50%; width: 120px; height: 120px; object-fit: cover; margin: 0 auto 1rem; border: 3px solid var(--primary);" />
-            <h3 style="margin-bottom: 0.25rem; font-size: 1.3rem; color: var(--primary);">Dra. Stephanie Gomes Vasconcelos Bastos</h3>
-            <p style="font-size: 0.8rem; color: var(--primary); margin-bottom: 0.75rem; font-weight: 500;">OAB/DF 58.331</p>
-            <p style="color: #666; font-size: 0.95rem; margin-bottom: 1rem;">Direito Civil e Família</p>
-            <p style="font-size: 0.9rem; color: #777; line-height: 1.5;">
-              Dra. Stephanie atua com respeito e compromisso nas áreas de Direito Civil e Família, buscando sempre a melhor solução para seus clientes.
-            </p>
-            <a href="#contato" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: bold; text-decoration: none; border-bottom: 1px solid var(--primary);">Contato</a>
-          </div>
-      
-          <div style="background: white; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); transition: transform 0.3s ease; text-align: center; padding: 1.5rem;">
-            <img src="adv-homem-1.png"  alt="Dr. Helson de Oliveira Nascimento Alencar" style="border-radius: 50%; width: 120px; height: 120px; object-fit: cover; margin: 0 auto 1rem; border: 3px solid var(--primary);" />
-            <h3 style="margin-bottom: 0.25rem; font-size: 1.3rem; color: var(--primary);">Dr. Helson de Oliveira Nascimento Alencar</h3>
-            <p style="font-size: 0.8rem; color: var(--primary); margin-bottom: 0.75rem; font-weight: 500;">OAB/DF 60.571</p>
-            <p style="color: #666; font-size: 0.95rem; margin-bottom: 1rem;">Direito Empresarial e Trabalhista</p>
-            <p style="font-size: 0.9rem; color: #777; line-height: 1.5;">
-              Especializado em Direito Empresarial e Trabalhista, Dr. Helson traz expertise e agilidade aos processos consultivos e contenciosos.
-            </p>
-            <a href="#contato" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: bold; text-decoration: none; border-bottom: 1px solid var(--primary);">Contato</a>
+          <div style="background: #fff8f8; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); padding: 2rem; text-align: center; transition: transform 0.3s ease; border: 1px solid #f5c6c6;">
+            <h3 style="margin-bottom: 0.25rem; font-size: 1.4rem; color: var(--primary); font-weight: bold;">Dr. Divido Barbosa</h3>
+            <p style="font-size: 0.85rem; color: var(--primary); margin-bottom: 1rem; font-weight: 500;">OAB/DF 26.913</p>
+            <a href="#contato" style="display: inline-block; background: transparent; color: var(--primary); font-weight: bold; text-decoration: none; border: 2px solid var(--primary); padding: 0.5rem 1rem; border-radius: 30px; transition: all 0.3s ease;">Entrar em Contato</a>
           </div>
 
-          <div style="background: white; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); transition: transform 0.3s ease; text-align: center; padding: 1.5rem;">
-            <img src="patrick1.png"  alt="Dr. Patrick Bartholo" style="border-radius: 50%; width: 120px; height: 120px; object-fit: cover; margin: 0 auto 1rem; border: 3px solid var(--primary);" />
-            <h3 style="margin-bottom: 0.25rem; font-size: 1.3rem; color: var(--primary);">Dr. Patrick Bartholo</h3>
-            <p style="font-size: 0.8rem; color: var(--primary); margin-bottom: 0.75rem; font-weight: 500;">OAB/DF 31.229</p>
-            <p style="color: #666; font-size: 0.95rem; margin-bottom: 1rem;">Direito Digital e Tributário</p>
-            <p style="text-align: justify; margin: 0 auto; font-size: 0.9rem; color: #777; line-height: 1.5;">
-              Advogado com sólida formação acadêmica.
-              É pós-graduado em Direito Digital, Direito Eletrônico e Direito Internacional, com graduação em Direito pela Universidade de Passo Fundo e formação em Análise de Sistemas.
-              Sua atuação destaca-se pela capacidade de unir conhecimento jurídico e tecnológico, o que lhe confere uma visão ampliada para lidar com desafios jurídicos da era digital.            </p>
-            <a href="#contato" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: bold; text-decoration: none; border-bottom: 1px solid var(--primary);">Contato</a>
+          <div style="background: #fff8f8; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); padding: 2rem; text-align: center; transition: transform 0.3s ease; border: 1px solid #f5c6c6;">
+            <h3 style="margin-bottom: 0.25rem; font-size: 1.4rem; color: var(--primary); font-weight: bold;">Dra. Stephanie Gomes Vasconcelos</h3>
+            <p style="font-size: 0.85rem; color: var(--primary); margin-bottom: 1rem; font-weight: 500;">OAB/DF 58.331</p>
+            <a href="#contato" style="display: inline-block; background: transparent; color: var(--primary); font-weight: bold; text-decoration: none; border: 2px solid var(--primary); padding: 0.5rem 1rem; border-radius: 30px; transition: all 0.3s ease;">Entrar em Contato</a>
           </div>
-      
+
+          <div style="background: #fff8f8; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); padding: 2rem; text-align: center; transition: transform 0.3s ease; border: 1px solid #f5c6c6;">
+            <h3 style="margin-bottom: 0.25rem; font-size: 1.4rem; color: var(--primary); font-weight: bold;">Dr. Helson de Oliveira Nascimento Alencar</h3>
+            <p style="font-size: 0.85rem; color: var(--primary); margin-bottom: 1rem; font-weight: 500;">OAB/DF 60.571</p>
+            <a href="#contato" style="display: inline-block; background: transparent; color: var(--primary); font-weight: bold; text-decoration: none; border: 2px solid var(--primary); padding: 0.5rem 1rem; border-radius: 30px; transition: all 0.3s ease;">Entrar em Contato</a>
+          </div>
+
+          <div style="background: #fff8f8; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); padding: 2rem; text-align: center; transition: transform 0.3s ease; border: 1px solid #f5c6c6;">
+            <h3 style="margin-bottom: 0.25rem; font-size: 1.4rem; color: var(--primary); font-weight: bold;">Dr. Patrick Bartholo</h3>
+            <p style="font-size: 0.85rem; color: var(--primary); margin-bottom: 1rem; font-weight: 500;">OAB/DF 31.229</p>
+            <a href="#contato" style="display: inline-block; background: transparent; color: var(--primary); font-weight: bold; text-decoration: none; border: 2px solid var(--primary); padding: 0.5rem 1rem; border-radius: 30px; transition: all 0.3s ease;">Entrar em Contato</a>
+          </div>
+          <br>
+
         </div>
       </section>
 
